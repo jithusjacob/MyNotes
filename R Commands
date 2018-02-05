@@ -1,0 +1,128 @@
+# is used for comments
+^ is for exponent 3^2=9
+%% is modulo 5%%2 = 3
+X <- 42 or x = 42 value assignment
+
+Basic Data types
+decimals are called numerics
+natural numbers are called integers
+Boolean values are called logical
+text or string values are called characters (should be in quotes_)
+
+class(x)  - gives the data type of the variable x
+
+Vectors
+vectors - one dimension arrays that store data
+we create vector using rhe combine function c()  ex a_v = c(1,2,3)
+name a vector - name(a_v) = c("a","b","c")  giving name to each value in a vector
+vectors can be added- each element will be added to corresponding element
+sum(a_v) = 6 add's all the elements in the vector 
+a_v[1]= 1 or a_v["a"] = 1 selecting individual elements.
+Index starts from 1
+a_v[1:3] index from 1 to 3 both 1 and 3 inculded
+mean(a_v) will calculate the mean of elements in a_v
+logical comparison operators can be applied to vectos ex r_v = a_v > 3 --it will assign boolean values
+r_v is a logical vector
+a_v[r_v] -when we pass a logical vector in square brackets it will only select elements that corresponds to true
+
+Matrix
+Matrix - is 2 dimensional array with rows and columns with same data type
+matrix(1:9,byrow =TRUE,nrow=3)
+1:9 - collection of elements to be filled(shortcut for c(1, 2, 3, 4, 5, 6, 7, 8, 9).)
+byrow - data to filled row wise(true)(horizontally) or column wise (false)(vertically)
+nrow - number of rows
+
+colnames(my_matrix) = colnames_vector ---- to name the columns of the matrix
+rownames(my matrix) = rownames_vector ---- to name the rows of the matrix
+we can also use > dimnames(A) = list( 
++   c("row1", "row2"),         # row names 
++   c("col1", "col2", "col3")) # column names 
+
+rowSums(my_matrix) - adds all the elements in a row
+colSums(my_matrix) - adds all the elements in a column
+You can add a column or multiple columns to a matrix with the cbind() function, which 
+merges matrices and/or vectors together by column. For example:
+big_matrix <- cbind(matrix1, matrix2, vector1 ...)
+rbind() will work row wise merging
+
+my_matrix[1:3,1:4] -- selecting values from matrix with row's and column's
+
+Similar to with vectors, the standard operators like 
++, -, /, *, etc. work in an element-wise way on matrices in R.
+
+Factors
+The term factor refers to a statistical data type used to store categorical variables. 
+The difference between a categorical variable and a continuous variable is that a 
+categorical variable can belong to a limited number of categories. A continuous variable,
+ on the other hand, can correspond to an infinite number of values.
+
+It is important that R knows whether it is dealing with a continuous or a categorical 
+variable, as the statistical models you will develop in the future treat both types 
+differently. (You will see later why this is the case.)
+
+A good example of a categorical variable is the variable 'Gender'. A human individual
+can either be "Male" or "Female", making abstraction of inter-sexes. So here "Male" and "Female"
+are, in a simplified sense, the two values of the categorical variable "Gender", and 
+every observation can be assigned to either the value "Male" of "Female".
+
+gender_vector <- c("Male","Female","Female","Male","Male")
+factor_gender_vector <- factor(gender_vector)
+Levels :Female Male
+
+temperature_vector <- c("High", "Low", "High","Low", "Medium")
+factor_temperature_vector <- factor(temperature_vector, order = TRUE, levels = c("Low", "Medium", "High"))
+ordinal variables do have a natural ordering other wise order is mentioned
+
+ordered factors can be compared.
+
+change name of the levels 
+levels(factor_vector) <- c("name1", "name2",...)
+summary(my_var) -will give you a quick overview of the contents of a variable
+
+DataFrame
+A data frame has the variables of a data set as columns and the observations as rows. It can have different data types
+head() - prints first few records
+tail() - prints last few records
+str() - shows you the structure of your data set
+data.frame() - is used to create the data frame.pass in the vectors .vector names will be colmn names and vector records will be rows
+selcting fields in dataframe is same as matrix
+selecting entire column with column - d_data_frame$columnname
+subset(my_df, subset = some_condition)
+order()-you can sort your data according to a certain variable in the data set
+> a <- c(100, 10, 1000)
+> order(a)
+[1] 2 1 3
+> a[order(a)]
+[1]   10  100 1000
+
+
+List
+A list in R allows you to gather a variety of objects under one name (that is, the name of the list) in an ordered way. These objects
+can be matrices, vectors, data frames, even other lists, etc. It is not even required that these objects are related to each other 
+in any way.
+
+my_list <- list(comp1, comp2 ...)
+
+Relational Operators
+equality ==
+Inequality !=
+less than <    works for string and logical values.String alaphabetical order is checked
+greater than > works for string and logical values.String alaphabetical order is checked
+
+True mean 1 and False means 0 
+
+less than equal to <=
+greater than equal to >=
+
+relational operators on vectors
+
+Logical Operators
+AND —&
+OR — |
+NOT - !
+
+&& just first element of the vector
+|| just first element og thr vector
+
+
+

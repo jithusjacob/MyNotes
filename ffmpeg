@@ -1,0 +1,4 @@
+brew install ffmpeg
+ffmpeg -i video.mp4 audio.mp3
+
+https://www.maketecheasier.com/ffmpeg-commands-media-file-conversions/

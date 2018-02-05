@@ -1,0 +1,8 @@
+vim test
+i- to start writing
+esc - jumps out of insert mode
+:w to save
+:wq to save and quit
+:q! - to discard any changes u have made
+w - to jump to next word to go forward
+b - to jump to next word to go backward

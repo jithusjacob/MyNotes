@@ -1,0 +1,77 @@
+Github
+# Set your username
+$ git config --global user.name "Your Name Here"
+
+# Set your email address
+$ git config --global user.email "your_name@domain.com"
+
+$ git config --list
+
+$ git init
+touch .gitignore
+$ git status
+$ git add -A
+$ git reset  filename --- to remove a specific file
+$ git commit -m "first commit-Final code for downloading youtube videos and converting to audio"
+$ git checkout --- to remove commited file
+git commit --ammend -m "test"
+
+$ git log
+
+git credential-osxkeychain
+
+connect to remote repository
+# Sets the new remote
+git remote add origin remote repository URL
+# Verifies the new remote URL
+git remote -v
+
+
+
+
+
+git clone <url> <where to clone>
+
+git remote -v
+git branch -a
+
+pushing changes
+git diff
+git status
+git add -A
+git commit -m "meesage"
+git pull origin master
+git push origin master
+
+branch
+git branch  -- check current branch
+git branch branchname
+git checkout branchname
+
+push branch to remote
+git push -u origin branchname
+git branch -a
+
+merge branch
+git checkout master
+git pull origin master
+git brnach --merged
+git merge branchname
+git push origin master
+
+delete branch
+git branch -d branchname --- local
+git push origin --delete branchname --- from remote
+
+
+I got this error when I set up a local repository first. Then went to github and created a new repository. Then I
+
+git remote add origin <repository url>
+voila! When I tried to push/pull, I got the same fatal: unrelated_histories error. Here is how I fixed it.
+
+git pull origin master --allow-unrelated-histories
+git merge origin origin/master
+... add and commit here...
+git push origin master
+
+:wq  

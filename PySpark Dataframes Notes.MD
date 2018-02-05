@@ -127,3 +127,21 @@ mean_value = df.select(mean(df['Channel'])).collect()
 mean_Channel= mean_value[0][0]
 df.na.fill(mean_Channel,subset=['Channel']).show()
 ```
+
+### Dates and TimeStamp
+We can use different functions which will help us handle Dates and TimeStamp
+
+``` python
+from pyspark.sql.functions import (dayofmonth,hour,dayofyear,month,year,       
+                                   weekofyear,format_number,date_format)
+
+df.select(dayofmonth(df['Date'])).show()  # will take month from date field and show
+
+# to get average closing price for each year
+df.select(year(df['Date'])).show()
+newdf = df.withcolumn('Year',year(df[date]))
+results = newdf.groupBy('Year').mean().select(['Year',avg(Close)])
+new = resutls.select(['Year',format_number('avg(Close)',2).alias('Avg Close')])
+new.show()
+
+```

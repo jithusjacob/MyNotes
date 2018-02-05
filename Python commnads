@@ -1,0 +1,627 @@
+Python commnads
+
+os.listdir()
+
+escacpe using backlash '\'
+multiline string """ or '''
+len() -length of string
+
+message ="hello world"
+message[0],message[0:5]
+first index is inclusive and second is not 
+
+method - function that belongs to a object
+
+.lower()
+.upper()
+.count("l")
+.find("W")  returns the index
+message.replace('world','Universe')  -- it replaces the world and returns a new text . message as such is not changed
+
+placeholder {}
+
+message = "{},{} Welcome!".format("a","b")
+message = "{0},{1},{0} Welcome!".format("a","b") number the placeholders
+message = "{0['name']},{1[0]},{0} Welcome!".format(a,b) number the placeholders a is dict,b is list
+similarly we can do the same with object attributes
+we can also pass key value placeholder
+message = "{a},{b} Welcome!".format(a='qwe',b='asd')
+
+p = {a:'qwe', b :'asd'}
+message = "{a},{b} Welcome!".format(**p)
+
+
+f strings instead of placeholder
+message = f'{a},{b}'
+
+
+numeric formating
+{:02}  fill by 2
+{:.2f}   to two decimal places
+{:,}- , separated
+{:,.2f} ,separated and two decimal
+
+
+date formatting - check different format
+{:%b %d,%Y}
+
+
+
+
+dir()  - gives list o fattributes and methods are availabel to you
+help(str), help(str.lower) - gives description of the methods and attributes
+
+
+type() - to see the data type
+
+Floor division //  ex 3//2 = 1 ,no decimals
+
+abs(-3) -- absolute value
+round(3.75,1)-- by default zero
+
+casting
+int()	 
+
+type(variable) --- shows datatype
+int(),float(),bool(),str() ---- convert types of variable
+print(True + False)
+print("Hey" * 2)
+print("Hey" + 2)
+
+List
+-Name a collection of values
+-contain any type
+-contain different types
+ex
+fam =["aa",123,"bb",345]
+index  0    1    2   3
+       -4   -3   -2  -1
+type(fam)
+Zero based indexing
+fam[0] = 'aa'
+fam[-4] = 'aa'
+
+fam [1:3] = [123,"bb"]
+[start:end]
+inclusive exclusive
+
+fam.append('art') -- adds to the ned of the list.if u use another list to append .it will become list in list
+fam.insert(3,'aer') --- insert it at index 3  .if u use another list to add .it will become list in list
+fam1.extend(fam) - adds values of list fam to fam1.
+
+fam.remove(345)
+fam.pop()--- just removes the last value and also returns the removed value
+fam.reverse()
+fam.sort() - strings alphabetically and numbers in asceding
+fam.sort(reverse=True)  - descending order
+sorted(fam) - it does not sort the original list but returns a sorted version of the list
+min(fam)
+max(fam)
+sum(fam)
+
+fam.index('bb')
+
+del(fam[2]) --- deletes from list
+
+List variable stores the memory location of the list in memory
+so if you create a list X then copy it by Y =X
+Then is you make a change in Y.It will automatically reflect in X
+
+to avoid this
+y = list(x) or
+y = x[:]
+
+also 
+ a = [1,2,3]
+ b= [1,2,3]
+ print(id(a))
+ print(id(b))
+ print(a is b)  false
+
+
+Pay attention here: as soon as you remove an element from a list, the indexes of the elements that come after the deleted element all change!
+
+del(areas[10]); del(areas[11]) -- will not have the intended result
+
+help(max) or ? max --- to get details about in built function
+
+Methods:call functions on objects.
+
+list with index and value
+for index1b in enumerate(fam,start = 1):
+      print(index1,b)
+
+
+ join - returns a string. its a string method
+ split - returns a list. 
+
+ l1 =['a','b','c']
+str1 = '-'.join(l1)
+l2 = str1.split('-')
+
+
+Tuples- can't modify - immutable ex - asd =(1,2,3)
+set- unordered -and does not have duplicates   asd = {1,2,3}   qwe = {3,4,5}
+1 in asd - optimized than lists
+asd.intersection(qwe)   - to get common in both set
+asd.difference(qwe)   - not common
+asd.union(qwe)  - both sets
+
+
+empty set  
+x= {}  not set .its a empty dictionary
+x =set()
+
+Dictionary - Value Key Pair
+A= {1:'a',2:'b'}
+A.get(1)
+A.get(3,'Not Found')   --- default value none
+A.update({1:'a1',3 :'c'})   - update,change at a single stretch
+A.pop()   - removes the last value
+del A[1] - removes the key
+
+len(A)  - count of keys in dictionary
+A.keys() - all the keys
+A.values() - all the values
+A.items()  - key and value pair
+
+ for key,value in A.items()  --- lopp with both values and keys
+
+
+ a = [1,2,3]
+ b= [1,2,3]
+ print(id(a))
+ print(id(b))
+ print(a is b)  false
+
+ condition = None
+ if condition: --- evaluates to false
+
+ condtion = 0
+ if condition: --- evaluates to false.but any other number then it evaluates to true
+
+ condition =[] or '' or {}  ---evalulates to false  this helps to check for empty 
+
+
+ loops
+ break - to complete break out of the loop
+ comtinue - it will go to next iteration from that point
+
+range
+for i in range(10):    ---- 0 to 9
+
+range(1,11) -- 1 to 10
+
+function -- reuse code without repeating 
+pass - return none
+
+def hello_function(x,y=123):  --x is requrired , y is not mandatory
+   
+
+ def abc(*args,**kwargs):  - when the arguments of the function is not fixed, *args --- for areguments .treated as a tuple if u print args.  **kwargs for key value arguments-treated as a dictionary if you print it
+
+ a=[1,2]
+ b={'a1'=1, 'b1' =2}
+
+ abc(*a,**b)
+
+
+
+import my_module as mm --- to shorten the my_module text while calling the function
+
+mm.myfunction()
+
+from my_module import myfunction()  --- only imports the fuction
+myfuncion()
+
+from my_module import *  ---  imports all .
+
+import sys
+print(sys.path) --- paths where import modules are checked
+sys.path.append('path')
+
+.bash_profile --- add  export PYTHONPATH ='path'
+
+import math
+radianc()
+sin(90)
+
+import datetime
+today = datetime,date.today()
+
+import calendar
+
+calender.isleap(2017)
+
+os module
+import os
+
+os.getcwd()--- current working directory
+
+os.__file__  - location of the module
+
+os.chdir('path')-- change directory
+os.listdir() -- list directory
+os.mkdir('newfolder')  -- create folder or direcory
+os.mkdirs('newfolder1/newfolder2') -- create directory and subdirectory
+os.rmdir('newfolder')
+os.removedirs('newfolder1/newfolder2')
+os.rename('test.txt','rename.txt')
+os.stat('test.txt') -- info about file like size,last modification time etc
+
+from datetime import datetime
+datetime.fromtimestamp(mod_time)
+
+os.walk() -- walks the directory tree.returns three value tuple
+
+for dirpath,dirnames,filename in os.walk('c:/Desktop')
+
+os.environ - environment variable
+os.environ.get('HOME')  - gets the environment vairable HOME
+
+os.path.join(os.environ.get('HOME'),'test.txt')  - instead of concatenating with + checking for slash
+
+os.path.basname('/tmp/test.txt')-  just gets the base name
+os.path.dirname('/tmp/test.txt') - just to get the dir name of the path
+os.path.split('/tmp/test.txt') - both dir name and basename
+os.path.exists('/tmp/test.txt') - check path exists
+os.path.isdir('/tmp/test.txt') - check if its a dir
+os.path.isfile('/tmp')- check if its a file
+os.path.splittext('/tmp/test.txt') - splits the root and the extension
+
+
+file objects
+
+f = open('test.txt','r')
+f.name
+f.mode 
+f.close()
+
+r- read
+w- write
+a- append
+r+- read and write
+
+open the file usng context manager - the above way need's us to explicitly close the file.If we miss that it could cause issues
+
+with open('test.txt','r') as f:
+     print(f.name)
+
+once the context block is done the file is automatically closed.
+
+f.read() - read's the file  into memory
+f.readlines() - every line as a element of a list
+f.readline() - read's next line.
+
+for line in f:
+   print(line,end='')      ---- end is to prevent to new line at the end.it overcomes the memory the issue
+
+f.read(100) - read's first 100 character.cursor stops there.If u rerun it continues from where it left off
+
+size_to_read =100
+f_contents = f.read(size_to_read)
+
+while len(f_continue) > 0:	
+    print(f_content,end='')
+    f_content = f.read(size_to_read)
+ 
+
+ f.tell - position in the file.(characters)
+
+ f.seek(0) - sets the position to zero-begining
+
+ open('test.txt','rw)- if file is not there it will create it.otherwise it overwrite
+ f.write('test text')
+
+ to work images we need to open them as binary mode
+ so rb- read binary
+    wb- write binary
+
+ Datetieme Module
+import datetime
+naive datetime - no timezone info
+aware datetime
+
+d = datetime.date(2016,7,24)   - no leadinf zeroes like 07
+dtdy = datetime.date.today()
+dtdy.day dtdy.year
+dtdy.weekday()
+dtdy.isoweekday()
+
+time delta - difference between time or dates
+tdelta = datetime.timedelta(days=7)
+dtdy + tdelta or dtdy - tdelta  date 7 days from now orbefore 7 days
+
+ add or subtract a date from another date we get a timedelta
+ add or subtract time delta from a date we get a date
+
+ tdelta.days
+ tdelta.total_seconds()
+
+ t = datetime.time(9,30,45,10000) - hrs,min,sec,miro sec
+ t.hour
+ t.min
+
+ dt= datetime.datetime(2017,7,26,12,30,45,10000)  - both date and time
+datetime.datetime.today() - without time zone
+datetime.datetime.now()- we can pass the timezone
+datetime.datetime.utcnow()-utc is set to no timezone
+
+pytz - to handle timezone
+
+import pytz
+
+dt = datetime.datetime(2016,7,12,30,45,tzinfo=pytz.UTC)
+t_utcnow =datetime.datetime.now(tz=pytz.UTC)
+datetime.datetime.utcnow().replace(tzinfo=pytz.UTC)
+both are same
+
+dt_mtn = dt_utcnow.astimezone(pytz.timezone('US/Mountain'))
+
+for tz in pytz.all_timezones:
+     print(tz)
+
+astimezone() cannot be applied to naive datetime
+
+mtn_tz = pytz.timezone('US/Mountain')
+
+dt_mt=mtn_tz.localize(naive datetime)
+
+
+print(dt_mtn.isoformat())  - standard format used globally
+other formats check documentation
+convert string to datetime
+
+dt_str = 'July 26,2016'
+
+dt = datetime.datetime.strptime(dt_str,'%B %d, %Y')
+
+
+strftime - datetime to string
+strptime -string to datetime
+
+arrow - easier package to work with datetime
+
+
+f_num = f_num.strip().zfill(2)   - 1-asbc ---- 01-asbc
+
+
+import csv
+
+with open('xyz.csv','r') as f:
+   csv_data = csv.reader(data_file)
+   next(csv_data) -- moves one line
+   for line in csv_data:
+       print (line)
+
+
+Variable Scope
+LEGB-Local ,enclosing Global ,built-in
+python checks in this order
+
+global x - to use it within the local scope
+
+
+import builtins
+
+print(dir(builtins))
+
+def min():
+   pass
+
+m = min([4,6,2,67,7])  - min above is referred first then built in
+
+enclosing- function inside function
+
+def outer():
+    x = 'outer X'
+
+    def inner():
+      # x = 'inner x'
+      print(x)
+
+     inner()
+     print(x)
+
+ outer() 
+
+
+ nonlocal x - work with local variable of the enclosing fuction --- just like global x
+
+Sorting Lists,Tuples and Objects
+
+List -sort,sorted()
+tuple- no sort,but sorted() is there
+dictionary - sorted(),sort - on keys 
+
+sorted(li,key=abs)- absolute value function
+
+sorted() - on objects
+
+obj =[obj1,obj2,obj3]
+
+e_custom function returns some particular attribute
+sorted(obj,key =e_custom)
+
+lambda function
+ sorted(obj,key=lambda cst: cst.attribute)
+
+ from operator import attrgetter
+ sorted=(obj,key=attrgetter('attribute'))
+
+
+ Using Try/Except Blocks
+
+ try:        - try the code
+   pass
+ except Exception:     ---if any error
+   pass
+ else:         --if the code is fine in the try block..execute the rest in else
+   pass
+ finally:      -- runs no matter happens. 
+   pass
+
+
+Exception - general -- need to be specific  like FileNotFoundError
+
+except Exception as e:
+   print(e)
+
+raise Exception  ----raise exception manually
+
+
+
+Slicing Lists and strings
+
+my_list[2::2] third parameter means skip 1.default value is  1
+mylist[::-1] it will print in reverse
+
+
+List Comprehensions
+
+nums = [1,2,3,4,5,6,7,9,10]
+
+my_list = [n for n in nums]  - list comprehensions
+my_list= map(lambda n: n,nums)  - maps and lambda same as list comprehension
+my_list = [n for n in nums if n%2 == 0] -- list comprehension to store even numbers
+my_list= filter(lambda n:n%2 == 0, nums)- same as above
+ 
+mylist =[(l,n) for l in 'abcd' for n in range(4)]   --- for loop in for loop
+
+Dictonary comprehensions
+zip(l1,l2) -- on two equal index list creates a list of tuples
+my_dict ={l1:l2 for l1,l2 in zip(l1,l2)}
+
+Set comprehensions
+my_set = {n for n in nums}
+
+
+Generator Expressions Comprehension
+
+my_gen =(n*n for n in nums)
+
+for i in my_gen:
+    print 
+
+
+Pythonic way of coding
+-duck typing -
+-EAFP - ask forgiveness than permission  - use try catch insted of checking permission
+
+
+Generators is same a comprehension using ()
+yield keywords for generator
+- they don't store result in memory.
+-it creates a iterator to run the results
+
+generators is better for performance
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+ 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

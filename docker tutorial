@@ -1,0 +1,95 @@
+Docker
+
+The Compose file describes the container in its running state, leaving the details on how to build the container to Docker files.
+
+docker-compose up --build  ->build image and compose
+docker-compose stop  -> stop container
+docker-compose up  ->start container
+
+docker-compose ps
+docker-compose rm -f ->removes that container
+docker rmi -f $(docker images -qf dandling=true)  -> removes all dangling images in the system
+
+
+
+
+
+
+
+
+
+docker images --- list of images
+docker ps -a --- list of containers
+docker pull ubuntu --- it will pull the latest version
+docker pull ubuntu:12.04  --- it will install based on the tag from docker hub.here 12.04 is the tag
+docker rmi <image id> ---- to remove images
+docker rmi -f <image id> ----- to force remove images
+docker rm <container id> ---- to remove docker container
+
+docker run -it <image id>   --- creates a container with interactive option
+docker run -it --name <container name u want to name> <image id>
+docker start - to start the container
+docker stop - to stop the container. exit won't stop a container which was started.
+docker commit <container id> <image name> ---- to save the changes made in the container
+docker exec -it <container id> --- once start container . to go to interactive shell
+docker restart <container id>
+docker rename <container id> or <container name> <new name> ------re name container
+
+
+if no images
+docker run -it --name <container name u want to name> <image id> ----- it automatically download from docker hub
+
+docker search <image>  ----- will search  and return full list
+docker search -s 5 <image> ---- will return shorter list
+
+
+create user in ubuntu
+adduser peter
+
+
+su peter --- change user
+
+docker exec -it  -u peter <container id> --- start as user peter
+cd ~/   to go to home dir of user
+
+
+docker cp <imagename or id>:/<path> <destination path> ------copy a file from container to system
+docker cp <source path> <imagename or id>:/<destination> ----------copy file from system to container
+
+docker run  -td --name webserver -p 80:80 ubuntu -------- d detach  p for port
+docker port webserver ------- check for port mapping
+
+change host name of the container
+docker run -it -h <hostname> <image id>
+
+volume bind
+docker run -it --name test 	-v <source path>:<destination path> <image>--- destination path should be absolute.If not it will create a docker volume in host and map it to the container.THis volume can be shared among containers
+
+
+docker 	run -it --name master -v backup:/backup -v logs:/logs ubuntu
+docker  run -it --name slave1 --volumes-from master ubuntu
+
+docker inspect <container>
+docker inspect volume
+
+
+Environment variables in docker
+docker run -it -e MODE=test -e CO_Root=/sad/e3e  ubunut ---- afterwards $MODE or $CO_Root
+ create a file env.list add MODE=test CO_Root=/sad/e3e to it
+
+ docker run -it --env-file ./env.list ubuntu  ---- set file env variables
+ docker run -it --env-file ./env.list  -e MODE=dev ubuntu --- it will read env file first the -e parameter and override it
+
+
+docker build -t
+
+docker-compose stop    # If there are existing containers running, stop them
+docker-compose build
+docker-compose up -d
+docker-compose up ----- server
+
+
+
+
+
+

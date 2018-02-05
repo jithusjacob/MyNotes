@@ -1,0 +1,12 @@
+jupyter notebooks
+conda create --name snowflakes biopython
+source activate snowflakes
+source deactivate
+conda info --envs
+conda env list
+conda create --name flowers --clone snowflakes
+conda remove --name flowers --all
+
+source activate myenv
+conda install -n myenv ipython jupyter
+python -m ipykernel install --user --name myenv --display-name "Python (myenv)"
